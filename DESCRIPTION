@@ -1,7 +1,8 @@
 Package: lindasR
 Type: Package
-Title: Tools for Querying the Swiss Federal Linked Data Service 'LINDAS'
-Version: 0.1.0
+Title: Tools for Querying the Swiss Federal Linked Data Service
+        'LINDAS'
+Version: 0.2.0
 Authors@R: 
     person(
       "David", "Zumbach",
@@ -18,21 +19,11 @@ URL: https://ld.admin.ch, https://github.com/zumbov2/lindas
 BugReports: https://github.com/zumbov2/lindas/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
-Depends:
-    R (>= 4.1)
-Imports:
-    dplyr,
-    httr,
-    jsonlite,
-    purrr,
-    tibble,
-    magrittr,
-    stats
-Suggests:
-    knitr,
-    rmarkdown,
-    testthat (>= 3.0.0)
+Depends: R (>= 4.1)
+Imports: dplyr, httr, jsonlite, purrr, tibble, magrittr, stats
+Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 RoxygenNote: 7.3.3
 NeedsCompilation: no
 Author: David Zumbach [aut, cre]
 Maintainer: David Zumbach <david.zumbach@gfzb.ch>
+Packaged: 2026-03-09 22:59:06 UTC; DavidZumbach

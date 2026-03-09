@@ -13,8 +13,8 @@
 if (getRversion() >= "2.15.1") {
   utils::globalVariables(
     c(
-      ".",
-      "sub",
+      ".", ".data",
+      "sub", "p",
       "name", "name_lang",
       "description", "description_lang",
       "contactName", "contactName_lang",

@@ -13,7 +13,7 @@ knowledge graphs that can be queried via SPARQL.
 # Installation
 
 ``` r
-# install from GitHub
+# Install from GitHub
 remotes::install_github("zumbov2/lindasR")
 ```
 
