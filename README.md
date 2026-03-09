@@ -17,6 +17,12 @@ knowledge graphs via SPARQL.
 remotes::install_github("zumbov2/lindasR")
 ```
 
+## What the package does
+
+-   query the LINDAS SPARQL endpoint
+-   retrieve dataset metadata
+-   perform full‑text search across literals
+
 ## Example
 
 Query datasets published in LINDAS:
@@ -34,20 +40,4 @@ Search across literals in the LINDAS knowledge graph:
 search_lindas("Fraumünster")
 ```
 
-## What the package does
-
--   query the LINDAS SPARQL endpoint
--   retrieve dataset metadata
--   resolve multilingual values with language preference
--   perform full‑text search across literals
-
-## LINDAS
-
-LINDAS is operated by the **Swiss Federal Archives** and provides
-infrastructure for publishing and using linked government data as RDF
-knowledge graphs.
-
-More information:
-
-https://lindas.admin.ch
 
