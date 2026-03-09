@@ -6,11 +6,9 @@ The package provides a lightweight wrapper around the LINDAS SPARQL
 endpoint and makes it easier to query datasets and perform full‑text
 searches from R.
 
-LINDAS is the Linked Data infrastructure of the Swiss federal
+[LINDAS](https://lindas.admin.ch/) is the Linked Data infrastructure of the Swiss federal
 administration and allows government data to be published and queried as
 knowledge graphs via SPARQL.
-
-------------------------------------------------------------------------
 
 ## Installation
 
@@ -18,8 +16,6 @@ knowledge graphs via SPARQL.
 # install from GitHub
 remotes::install_github("zumbov2/lindasR")
 ```
-
-------------------------------------------------------------------------
 
 ## Example
 
