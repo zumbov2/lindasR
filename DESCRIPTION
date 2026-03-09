@@ -1,21 +1,38 @@
 Package: lindasR
 Type: Package
-Title: Tools to Query the Swiss Federal Linked Data Service (LINDAS)
+Title: Tools for Querying the Swiss Federal Linked Data Service 'LINDAS'
 Version: 0.1.0
 Authors@R: 
-    person("David", "Zumbach", , "david.zumbach@gfzb.ch", c("aut", "cre"))
+    person(
+      "David", "Zumbach",
+      email = "david.zumbach@gfzb.ch",
+      role = c("aut", "cre")
+    )
 Description: Provides convenient access to the Swiss Federal Linked Data
-    Service (LINDAS) via its 'SPARQL' endpoint (<https://ld.admin.ch/>).
-    The package allows users to query datasets, perform full-text search
-    across literals, and retrieve multilingual metadata with configurable
-    language preferences.
-URL: https://ld.admin.ch
+    Service (LINDAS) via its SPARQL endpoint (<https://ld.admin.ch/>).
+    The package allows users to discover datasets, retrieve observation
+    data from RDF cubes, perform full-text searches across literals,
+    and work with multilingual metadata using configurable language
+    preferences.
+URL: https://ld.admin.ch, https://github.com/zumbov2/lindas
 BugReports: https://github.com/zumbov2/lindas/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
+Depends:
+    R (>= 4.1)
+Imports:
+    dplyr,
+    httr,
+    jsonlite,
+    purrr,
+    tibble,
+    magrittr,
+    stats
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
 RoxygenNote: 7.3.3
-Imports: dplyr, httr, jsonlite, purrr, tibble, magrittr, stats
 NeedsCompilation: no
-Packaged: 2026-03-09 16:12:00 UTC; DavidZumbach
 Author: David Zumbach [aut, cre]
 Maintainer: David Zumbach <david.zumbach@gfzb.ch>

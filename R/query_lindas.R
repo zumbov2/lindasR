@@ -7,28 +7,17 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom tibble tibble
 #' @importFrom purrr map_chr
-#' @importFrom stats setNames
 #'
 #' @param query A SPARQL query as a character string.
 #'
 #' @return A tibble containing the query result. If the query returns no rows,
 #'   an empty tibble is returned.
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' query_lindas("
-#'   SELECT * WHERE {
-#'     ?s ?p ?o .
-#'   }
-#'   LIMIT 10
-#' ")
-#' }
-query_lindas <- function(query, endpoint = "https://ld.admin.ch/query") {
+query_lindas <- function(query) {
 
   res <-
     httr::POST(
-      url = endpoint,
+      url = "https://ld.admin.ch/query",
       body = list(query = query),
       encode = "form",
       httr::add_headers(Accept = "application/sparql-results+json")
@@ -45,7 +34,7 @@ query_lindas <- function(query, endpoint = "https://ld.admin.ch/query") {
   if (length(rows) == 0) return(tibble::tibble())
 
   tibble::tibble(
-    !!!setNames(
+    !!!stats::setNames(
       lapply(vars, function(v) {
         purrr::map_chr(rows, function(r) {
           if (!is.null(r[[v]]$value)) r[[v]]$value else NA_character_
@@ -54,5 +43,4 @@ query_lindas <- function(query, endpoint = "https://ld.admin.ch/query") {
       vars
     )
   )
-
 }

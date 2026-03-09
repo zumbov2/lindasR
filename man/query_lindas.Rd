@@ -17,13 +17,3 @@ A tibble containing the query result. If the query returns no rows,
 \code{query_lindas} sends a SPARQL query to the LINDAS endpoint and returns
 the result as a tibble.
 }
-\examples{
-\dontrun{
-query_lindas("
-  SELECT * WHERE {
-    ?s ?p ?o .
-  }
-  LIMIT 10
-")
-}
-}

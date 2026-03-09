@@ -3,18 +3,11 @@
 #' \code{search_lindas} performs a full-text search over literals in LINDAS
 #' using Stardog text search and returns matching triples with a relevance score.
 #'
-#' @importFrom utils head
-#'
 #' @param search Search term as a character string.
 #'
 #' @return A tibble with the subject, predicate, literal, and score of the
 #'   matching triples.
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' search_lindas("Fraumünster")
-#' }
 search_lindas <- function(search) {
 
   search <- trimws(search)
@@ -34,5 +27,4 @@ search_lindas <- function(search) {
     )
 
   query_lindas(query)
-
 }

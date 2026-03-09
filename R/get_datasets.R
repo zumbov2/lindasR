@@ -28,18 +28,6 @@
 #'   field is returned for each dataset. Otherwise, all language versions are
 #'   retained.
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' # Prefer English, then German, then French, Italian, and Romansh
-#' get_datasets()
-#'
-#' # Prefer German metadata when available
-#' get_datasets(lang_pref = c("de", "fr", "it", "rm", "en"))
-#'
-#' # Get all available language versions
-#' get_datasets(lang_pref = NULL)
-#' }
 get_datasets <- function(lang_pref = c("en", "de", "fr", "it", "rm")) {
 
   raw <- query_lindas(lindas_queries$datasets)

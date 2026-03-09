@@ -29,24 +29,6 @@
 #'   literal value per predicate is returned where applicable. Otherwise, all
 #'   language versions are retained.
 #' @export
-#'
-#' @examples
-#' \dontrun{
-#' # Prefer English, then German, then French, Italian, and Romansh
-#' get_resource("https://communication.ld.admin.ch/ofcom/srg_revenue_structure/10")
-#'
-#' # Prefer German literals when available
-#' get_resource(
-#'   "https://communication.ld.admin.ch/ofcom/srg_revenue_structure/10",
-#'   lang_pref = c("de", "fr", "it", "rm", "en")
-#' )
-#'
-#' # Get all available language versions
-#' get_resource(
-#'   "https://communication.ld.admin.ch/ofcom/srg_revenue_structure/10",
-#'   lang_pref = NULL
-#' )
-#' }
 get_resource <- function(uri, lang_pref = c("en", "de", "fr", "it", "rm")) {
 
   if (!nzchar(uri)) stop("`uri` must not be empty.")
@@ -75,5 +57,5 @@ get_resource <- function(uri, lang_pref = c("en", "de", "fr", "it", "rm")) {
       )
   }
 
-  return(res)
+  res
 }

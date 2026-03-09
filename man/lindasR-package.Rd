@@ -17,6 +17,7 @@ See the README on
 Useful links:
 \itemize{
   \item \url{https://ld.admin.ch}
+  \item \url{https://github.com/zumbov2/lindas}
   \item Report bugs at \url{https://github.com/zumbov2/lindas/issues}
 }
 

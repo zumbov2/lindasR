@@ -17,8 +17,3 @@ A tibble with the subject, predicate, literal, and score of the
 \code{search_lindas} performs a full-text search over literals in LINDAS
 using Stardog text search and returns matching triples with a relevance score.
 }
-\examples{
-\dontrun{
-search_lindas("Fraumünster")
-}
-}
