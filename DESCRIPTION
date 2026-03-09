@@ -13,14 +13,9 @@ URL: https://ld.admin.ch
 BugReports: https://github.com/zumbov2/lindas/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 RoxygenNote: 7.3.3
-Imports:
-    dplyr,
-    httr,
-    jsonlite,
-    purrr,
-    tibble,
-    magrittr,
-    stats
+Imports: dplyr, httr, jsonlite, purrr, tibble, magrittr, stats
 NeedsCompilation: no
+Packaged: 2026-03-09 16:12:00 UTC; DavidZumbach
+Author: David Zumbach [aut, cre]
+Maintainer: David Zumbach <david.zumbach@gfzb.ch>
