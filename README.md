@@ -1,10 +1,4 @@
-# lindasR `<img src="man/figures/logo.png" align="right" width="120"/>`{=html}
-
-[![License:
-MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![R-CMD-check](https://github.com/zumbov2/lindasR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/zumbov2/lindasR/actions)
-[![GitHub
-release](https://img.shields.io/github/v/release/zumbov2/lindasR)](https://github.com/zumbov2/lindasR/releases)
+# lindasR
 
 R interface to the **Swiss Federal Linked Data Service (LINDAS)**.
 
