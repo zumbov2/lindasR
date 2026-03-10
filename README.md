@@ -108,14 +108,6 @@ lindasR::search_lindas("Fraumünster")
 library(lindasR)
 library(tidyverse)
 library(scales)
-#> 
-#> Attache Paket: 'scales'
-#> Das folgende Objekt ist maskiert 'package:purrr':
-#> 
-#>     discard
-#> Das folgende Objekt ist maskiert 'package:readr':
-#> 
-#>     col_factor
 library(geomtextpath)
 library(hrbrthemes)
 library(glue)
@@ -147,7 +139,7 @@ plot_df |>
   scale_y_continuous(labels = number) +
   labs(
     title = "Gesamter Endverbrauch an Energieträgern",
-    subtitle = "Entwicklung der fünf wichtigsten Energieträger (Auswahl basierend auf dem Verbrauch im letzten Jahr)",
+    subtitle = "Entwicklung der fünf wichtigsten Energieträger 2022",
     x = NULL,
     y = "Endverbrauch in TJ",
     caption = glue("**Quelle**: Bundesamt für Energie BFE")
