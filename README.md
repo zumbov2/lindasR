@@ -103,6 +103,70 @@ lindasR::search_lindas("Fraumünster")
 #> # ℹ 167 more rows
 ```
 
+## End-to-End
+``` r
+library(lindasR)
+library(tidyverse)
+library(scales)
+#> 
+#> Attache Paket: 'scales'
+#> Das folgende Objekt ist maskiert 'package:purrr':
+#> 
+#>     discard
+#> Das folgende Objekt ist maskiert 'package:readr':
+#> 
+#>     col_factor
+library(geomtextpath)
+library(hrbrthemes)
+library(glue)
+library(ggtext)
+
+hits <- search_datasets("Switzerland energy balance", lang_pref = "de")
+
+df <- get_data(hits$sub[1], lang_pref = "de")
+
+plot_df <- 
+  df |> 
+  mutate(across(c(Jahr, Energie), as.numeric)) |> 
+  filter(`Rubrik Energiebilanz` == "Endverbrauch - Total")
+
+small_carriers <- 
+  plot_df |>
+  filter(Jahr == max(Jahr)) |>
+  arrange(desc(Energie)) |>
+  slice(6:n()) |>
+  pull(Energieträger)
+
+plot_df |>
+  filter(!Energieträger %in% small_carriers) |>
+  group_by(Jahr, Energieträger) |>
+  summarise(Energie = sum(Energie), .groups = "drop") |> 
+  ggplot(aes(x = Jahr, y = Energie, color = Energieträger, label = Energieträger)) +
+  geom_line(alpha = 0.4) +
+  geom_textsmooth(se = F) +
+  scale_y_continuous(labels = number) +
+  labs(
+    title = "Gesamter Endverbrauch an Energieträgern",
+    subtitle = "Entwicklung der fünf wichtigsten Energieträger (Auswahl basierend auf dem Verbrauch im letzten Jahr)",
+    x = NULL,
+    y = "Endverbrauch in TJ",
+    caption = glue("**Quelle**: Bundesamt für Energie BFE")
+  ) +
+  theme_ft_rc() +
+  theme(
+    legend.position = "none",
+    plot.title.position = "plot",
+    plot.caption.position = "plot",
+    axis.title.y = element_text(margin = margin(r = 12)),
+    plot.caption = element_markdown(hjust = 0, margin = margin(t = 12)),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+![](https://i.imgur.com/Yla0uCr.png)
+
+
 # LINDAS
 
 More information about the Swiss Linked Data infrastructure:
