@@ -156,7 +156,7 @@ plot_df |>
 
 ```
 
-![](https://i.imgur.com/Yla0uCr.png)
+<img src="https://raw.githubusercontent.com/zumbov2/lindasR/master/img/plot.png" width="800">
 
 
 # LINDAS
