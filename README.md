@@ -176,7 +176,3 @@ https://ld.admin.ch/query
 # Contributing
 
 Contributions and feedback are welcome.
-
-Bug reports and feature requests can be submitted via:
-
-https://github.com/zumbov2/lindasR/issues
