@@ -109,9 +109,8 @@ library(lindasR)
 library(tidyverse)
 library(scales)
 library(geomtextpath)
-library(hrbrthemes)
-library(glue)
 library(ggtext)
+library(hrbrthemes)
 
 hits <- search_datasets("Switzerland energy balance", lang_pref = "de")
 
@@ -142,7 +141,7 @@ plot_df |>
     subtitle = "Entwicklung der fünf wichtigsten Energieträger 2022",
     x = NULL,
     y = "Endverbrauch in TJ",
-    caption = glue("**Quelle**: Bundesamt für Energie BFE")
+    caption = "**Quelle**: Bundesamt für Energie BFE"
   ) +
   theme_ft_rc() +
   theme(
