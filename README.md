@@ -157,6 +157,10 @@ plot_df |>
 
 <img src="https://raw.githubusercontent.com/zumbov2/lindasR/master/img/plot.png" width="800">
 
+# Disclaimer
+
+Some parts of this package were developed with the assistance of a Large Language Model (LLM).  
+While the generated code has been reviewed and tested, no guarantee is made regarding completeness or correctness. Users are encouraged to validate results independently.
 
 # LINDAS
 
