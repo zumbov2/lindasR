@@ -165,7 +165,6 @@ df |>
 # Disclaimer
 
 Some parts of this package were developed with the assistance of a Large Language Model (LLM).  
-While the generated code has been reviewed and tested, no guarantee is made regarding completeness or correctness. Users are encouraged to validate results independently.
 
 # LINDAS
 
