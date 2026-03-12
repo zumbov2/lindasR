@@ -103,7 +103,7 @@ lindasR::search_lindas("Fraumünster")
 #> # ℹ 167 more rows
 ```
 
-## End-to-End
+## End-to-End example
 ``` r
 
 library(lindasR)
@@ -150,7 +150,7 @@ df |>
   facet_wrap(.~Produktgruppe, scales = "free_y") +
   scale_y_continuous(labels = function(x) paste("CHF", number(x, accuracy = 0.01))) +
   labs(
-    title = "<b style='color:#E0EBA1;'>Preisentwicklung</b> ausgewählter Milchprodukte im Schweizer Detailhandel",
+    title = "Preisentwicklung ausgewählter <b style='color:#E0EBA1;'>Milchprodukte</b> im Schweizer Detailhandel",
     subtitle = "Die Grafik zeigt die <b>monatlichen Durchschnittspreise ausgewählter Milchprodukte</b> im Schweizer Detailhandel seit 2022. Grundlage sind Daten der <b>Marktanalysen des Bundesamts für Landwirtschaft (BLW)</b>.<br>
     Die dünnen Linien zeigen die beobachteten Monatswerte, während die hervorgehobenen Linien eine <b>geglättete Trendkurve (LOESS)</b> darstellen, um die längerfristige Preisentwicklung sichtbar zu machen.<br>
     Berücksichtigt werden ausschliesslich <b>Milchprodukte aus Schweizer Herkunft und konventioneller Produktion</b>.",
