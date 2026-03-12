@@ -105,55 +105,60 @@ lindasR::search_lindas("Fraumünster")
 
 ## End-to-End
 ``` r
+
 library(lindasR)
 library(tidyverse)
-library(scales)
+library(lubridate)
 library(geomtextpath)
 library(ggtext)
-library(hrbrthemes)
+library(scales)
+  
+df <-
+  get_data(
+    "https://agriculture.ld.admin.ch/foag/cube/MilkDairyProducts/Consumption_Price_Month",
+    lang_pref = "de"
+    )
 
-hits <- search_datasets("Switzerland energy balance", lang_pref = "de")
-
-df <- get_data(hits$sub[1], lang_pref = "de")
-
-plot_df <- 
-  df |> 
-  mutate(across(c(Jahr, Energie), as.numeric)) |> 
-  filter(`Rubrik Energiebilanz` == "Endverbrauch - Total")
-
-small_carriers <- 
-  plot_df |>
-  filter(Jahr == max(Jahr)) |>
-  arrange(desc(Energie)) |>
-  slice(6:n()) |>
-  pull(Energieträger)
-
-plot_df |>
-  filter(!Energieträger %in% small_carriers) |>
-  group_by(Jahr, Energieträger) |>
-  summarise(Energie = sum(Energie), .groups = "drop") |> 
-  ggplot(aes(x = Jahr, y = Energie, color = Energieträger, label = Energieträger)) +
-  geom_line(alpha = 0.4) +
-  geom_textsmooth(se = F) +
-  scale_y_continuous(labels = number) +
-  labs(
-    title = "Gesamter Endverbrauch an Energieträgern",
-    subtitle = "Entwicklung der fünf wichtigsten Energieträger 2022",
-    x = NULL,
-    y = "Endverbrauch in TJ",
-    caption = "**Quelle**: Bundesamt für Energie BFE"
-  ) +
-  theme_ft_rc() +
-  theme(
-    legend.position = "none",
-    plot.title.position = "plot",
-    plot.caption.position = "plot",
-    axis.title.y = element_text(margin = margin(r = 12)),
-    plot.caption = element_markdown(hjust = 0, margin = margin(t = 12)),
-    panel.grid.minor = element_blank()
+cheese_selection <- c(
+  "Sbrinz", "Gruyère mild", "Emmentaler mild", 
+  "Appenzeller mild", "Raclettekäse", "Mozzarella"
   )
 
-```
+df |>
+  filter(
+    Produktionssystem == "Konventionell",
+    Produktherkunft == "Schweiz",
+    !(Produktgruppe == "Käse" & !Produkt %in% cheese_selection),
+    !(Produktgruppe == "Konsummilch" & str_detect(Produkt, "Past"))
+    ) |>
+  group_by(Datum, Produktuntergruppe) |>
+  slice(1) |>
+  mutate(
+    Datum = dmy(paste0("1.", Datum)),
+    Preis = as.numeric(Preis),
+    Produktgruppe = paste0(Produktgruppe, " (1 ", Einheit, ")")
+    ) |>
+  ggplot(aes(Datum, Preis, color = Produkt, label = Produkt)) +
+  geom_line(alpha = 0.4) +
+  geom_textsmooth(
+    linewidth = 1.25,
+    family = "Roboto Condensed",
+    size = 11/.pt,
+    method = 'loess',
+    formula = 'y ~ x'
+    ) +
+  facet_wrap(.~Produktgruppe, scales = "free_y") +
+  scale_y_continuous(labels = function(x) paste("CHF", number(x, accuracy = 0.01))) +
+  labs(
+    title = "<b style='color:#E0EBA1;'>Preisentwicklung</b> ausgewählter Milchprodukte im Schweizer Detailhandel",
+    subtitle = "Die Grafik zeigt die <b>monatlichen Durchschnittspreise ausgewählter Milchprodukte</b> im Schweizer Detailhandel seit 2022. Grundlage sind Daten der <b>Marktanalysen des Bundesamts für Landwirtschaft (BLW)</b>.<br>
+    Die dünnen Linien zeigen die beobachteten Monatswerte, während die hervorgehobenen Linien eine <b>geglättete Trendkurve (LOESS)</b> darstellen, um die längerfristige Preisentwicklung sichtbar zu machen.<br>
+    Berücksichtigt werden ausschliesslich <b>Milchprodukte aus Schweizer Herkunft und konventioneller Produktion</b>.",
+    caption = "<b>Quelle:</b> Bundesamt für Landwirtschaft, Fachbereich Marktanalysen • Gestaltung inspiriert von Cédric Scherer"
+    ) +
+  theme_custom()
+
+``` r
 
 <img src="https://raw.githubusercontent.com/zumbov2/lindasR/master/img/plot.png" width="800">
 
