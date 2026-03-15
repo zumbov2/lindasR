@@ -1,6 +1,6 @@
-![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)
-
 <img src="img/logo.png" height="120px" align="right" style="padding-left:10px;background-color:white;"/>
+
+![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)
 
 # lindasR
 
