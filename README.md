@@ -1,6 +1,6 @@
 ![Lifecycle](https://img.shields.io/badge/lifecycle-maturing-orange.svg)
 
-# lindasR
+# lindasR <a href="https://raw.githubusercontent.com/zumbov2/lindasR/master/img/logo.png" align="right" height="138" /></a>
 
 R interface to the **Swiss Federal Linked Data Service (LINDAS)**.
 
